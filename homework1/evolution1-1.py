@@ -123,7 +123,7 @@ def isQualify(points):
     if count == len(points):
         # 打开文件，如果文件不存在则创建一个新文件，写入模式为追加模式
         global result_file
-        result_file = open("result.txt", "a")
+        result_file = open("result1-1.txt", "a")
         # 写入内容到文件
         result_file.write(str(points) + "\n")
         # 关闭文件
