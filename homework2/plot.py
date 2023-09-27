@@ -25,7 +25,7 @@ def plot_coordinates(coordinates, optimalPath, worse_path):
   
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.title('Coordinate Plot (ratio: 1.7520409432443298)')
+    plt.title('Coordinate Plot (ratio: 1.7941772473604027)')
     plt.grid(True, which='both', linestyle='--')
 
     plt.show()
@@ -48,9 +48,9 @@ def plot_coordinates(coordinates, optimalPath, worse_path):
 # worse_path = ((1, 5), (0, 4), (1, 9), (5, 10), (9, 8), (8, 3), (5, 3), (1, 5))
 
 # Task2-1
-coordinates = [(18, 19), (2, 21), (4, 18), (9, 12), (24, 9), (16, 8), (10, 22), (2, 25)]
-optimal_path = ((18, 19), (10, 22), (2, 25), (2, 21), (4, 18), (9, 12), (16, 8), (24, 9), (18, 19))
-worse_path_indices =  [1, 2, 6, 0, 5, 3, 7, 4, 1 ]
+coordinates = [(3, 12), (16, 24), (6, 3), (1, 4), (18, 12), (26, 29), (10, 6), (24, 19), (9, 17)]
+optimal_path = ((3, 12), (1, 4), (6, 3), (10, 6), (18, 12), (24, 19), (26, 29), (16, 24), (9, 17), (3, 12))
+worse_path_indices = [2, 6, 0, 8, 1, 7, 4, 3, 5, 2]
 worse_path = [coordinates[i] for i in worse_path_indices ] 
 
 plot_coordinates(coordinates, optimal_path, worse_path)
