@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-def plot_coordinates(coordinates):
+def plot_coordinates(coordinates, optimalPath, worse_path):
     x_values = [coord[0] for coord in coordinates]
     y_values = [coord[1] for coord in coordinates]
 
@@ -12,6 +12,15 @@ def plot_coordinates(coordinates):
     ax.set_xticks(range(-1, 12))
     ax.set_yticks(range(-1, 12))
 
+    # 绘制线
+    path_x_values = [coord[0] for coord in optimalPath]
+    path_y_values = [coord[1] for coord in optimalPath]
+    ax.plot(path_x_values, path_y_values, color='blue', label='line')
+
+    path_x_values = [coord[0] for coord in worse_path]
+    path_y_values = [coord[1] for coord in worse_path]
+    ax.plot(path_x_values, path_y_values, color='red', label='line', linestyle="dashed")
+  
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.title('Coordinate Plot')
@@ -25,8 +34,21 @@ def plot_coordinates(coordinates):
 
 # Task1-2
 # coordinates = [(1, 5), (2, 5), (3, 5), (4, 5), (5, 5), (6, 5), (7, 5), (8, 5)]
-coordinates = [(6, 1), (3, 7), (2, 7), (4, 2), (3, 4), (0, 5), (9, 2), (3, 2)]
-plot_coordinates(coordinates)
+# coordinates = [(6, 1), (3, 7), (2, 7), (4, 2), (3, 4), (0, 5), (9, 2), (3, 2)]
+
+# Task1-3
+# coordinates = [(4, 4), (4, 6), (6, 6), (6, 4), (5, 9), (5, 1), (1, 5), (9, 5)]
+# optimal_path = ((4, 4), (1, 5), (4, 6), (5, 9), (6, 6), (9, 5), (6, 4), (5, 1), (4, 4))
+
+# Task1-4
+# coordinates = [(1, 5), (5, 8), (6, 5), (5, 2)]
+# optimal_path = ((1, 5), (5, 8), (6, 5), (5, 2), (1, 5))
+# worse_path = ((1, 5), (6, 5), (5, 2), (5, 8), (1, 5))
+
+coordinates = [(0, 4), (8, 3), (5, 3), (5, 10), (1, 5), (9, 8), (1, 9)]
+optimal_path = ((1, 5), (0, 4), (5, 3), (8, 3), (9, 8), (5, 10), (1, 9), (1, 5))
+worse_path = ((1, 5), (0, 4), (1, 9), (5, 10), (9, 8), (8, 3), (5, 3), (1, 5))
+plot_coordinates(coordinates, optimal_path, worse_path)
 
 
 # 用法示例
