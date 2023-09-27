@@ -9,8 +9,8 @@ def plot_coordinates(coordinates, optimalPath, worse_path):
 
     ax.scatter(x_values, y_values)
     # 设置 x 和 y 轴的范围
-    ax.set_xticks(range(-1, 12))
-    ax.set_yticks(range(-1, 12))
+    ax.set_xticks(range(-1, 31))
+    ax.set_yticks(range(-1, 31))
 
     # 绘制线
     path_x_values = [coord[0] for coord in optimalPath]
@@ -19,11 +19,13 @@ def plot_coordinates(coordinates, optimalPath, worse_path):
 
     path_x_values = [coord[0] for coord in worse_path]
     path_y_values = [coord[1] for coord in worse_path]
+    # for i in range(len(path_x_values) - 1 ):
+        # ax.arrow(path_x_values[i], path_y_values[i], path_x_values[i+1]-path_x_values[i], path_y_values[i+1]-path_y_values[i], head_width=0.5, head_length=0.5, fc='red', ec='red', linestyle="dashed")
     ax.plot(path_x_values, path_y_values, color='red', label='line', linestyle="dashed")
   
     plt.xlabel('X')
     plt.ylabel('Y')
-    plt.title('Coordinate Plot')
+    plt.title('Coordinate Plot (ratio: 1.7520409432443298)')
     plt.grid(True, which='both', linestyle='--')
 
     plt.show()
@@ -41,13 +43,16 @@ def plot_coordinates(coordinates, optimalPath, worse_path):
 # optimal_path = ((4, 4), (1, 5), (4, 6), (5, 9), (6, 6), (9, 5), (6, 4), (5, 1), (4, 4))
 
 # Task1-4
-# coordinates = [(1, 5), (5, 8), (6, 5), (5, 2)]
-# optimal_path = ((1, 5), (5, 8), (6, 5), (5, 2), (1, 5))
-# worse_path = ((1, 5), (6, 5), (5, 2), (5, 8), (1, 5))
+# coordinates = [(0, 4), (8, 3), (5, 3), (5, 10), (1, 5), (9, 8), (1, 9)]
+# optimal_path = ((1, 5), (0, 4), (5, 3), (8, 3), (9, 8), (5, 10), (1, 9), (1, 5))
+# worse_path = ((1, 5), (0, 4), (1, 9), (5, 10), (9, 8), (8, 3), (5, 3), (1, 5))
 
-coordinates = [(0, 4), (8, 3), (5, 3), (5, 10), (1, 5), (9, 8), (1, 9)]
-optimal_path = ((1, 5), (0, 4), (5, 3), (8, 3), (9, 8), (5, 10), (1, 9), (1, 5))
-worse_path = ((1, 5), (0, 4), (1, 9), (5, 10), (9, 8), (8, 3), (5, 3), (1, 5))
+# Task2-1
+coordinates = [(18, 19), (2, 21), (4, 18), (9, 12), (24, 9), (16, 8), (10, 22), (2, 25)]
+optimal_path = ((18, 19), (10, 22), (2, 25), (2, 21), (4, 18), (9, 12), (16, 8), (24, 9), (18, 19))
+worse_path_indices =  [1, 2, 6, 0, 5, 3, 7, 4, 1 ]
+worse_path = [coordinates[i] for i in worse_path_indices ] 
+
 plot_coordinates(coordinates, optimal_path, worse_path)
 
 
